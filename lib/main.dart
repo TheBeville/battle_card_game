@@ -50,10 +50,10 @@ class _MyHomePageState extends State<MyHomePage> {
                   title: 'Another Trebuchet',
                 ),
                 GameCard(
-                  title: 'And Another Trebuchet',
+                  title: 'And Another',
                 ),
                 GameCard(
-                  title: 'Yet Another Trebuchet',
+                  title: 'Yet Another',
                 ),
               ],
             ),
