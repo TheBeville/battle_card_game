@@ -1,9 +1,17 @@
 import 'package:flutter/material.dart';
+import '../model/card_data.dart';
 
 class GameCard extends StatelessWidget {
-  final String title;
+  // final CardData cardData = const CardData(
+  //   title: 'Trebuchet',
+  //   imagePath: 'lib/assets/trebuchet.png',
+  //   isUnitCard: true,
+  //   attackRange: 'Distance',
+  //   attackPower: 8,
+  // );
+  final CardData data;
 
-  const GameCard({Key? key, required this.title}) : super(key: key);
+  const GameCard({Key? key, required this.data}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -23,15 +31,15 @@ class GameCard extends StatelessWidget {
       height: 250,
       child: Column(
         children: [
-          Text(title),
+          Text(data.title),
           Container(
             decoration: BoxDecoration(
               border: Border.all(
                 width: 2,
               ),
               borderRadius: BorderRadius.circular(5),
-              image: const DecorationImage(
-                image: AssetImage('lib/assets/trebuchet.png'),
+              image: DecorationImage(
+                image: AssetImage(data.imagePath),
                 fit: BoxFit.cover,
               ),
             ),
@@ -39,6 +47,7 @@ class GameCard extends StatelessWidget {
             height: 100,
           ),
           Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Column(),
               Column(),

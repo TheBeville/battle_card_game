@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-import 'widget/card.dart';
+import 'widget/game_card.dart';
+
+// temp import
+import './temp_card_database.dart';
 
 void main() {
   runApp(const MyApp());
@@ -43,18 +46,10 @@ class _MyHomePageState extends State<MyHomePage> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: const [
-                GameCard(
-                  title: 'Trebuchet',
-                ),
-                GameCard(
-                  title: 'Another Trebuchet',
-                ),
-                GameCard(
-                  title: 'And Another',
-                ),
-                GameCard(
-                  title: 'Yet Another',
-                ),
+                GameCard(data: spear),
+                GameCard(data: archer),
+                GameCard(data: catapult),
+                GameCard(data: trebuchet),
               ],
             ),
           ],
