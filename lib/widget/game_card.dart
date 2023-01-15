@@ -2,13 +2,6 @@ import 'package:flutter/material.dart';
 import '../model/card_data.dart';
 
 class GameCard extends StatelessWidget {
-  // final CardData cardData = const CardData(
-  //   title: 'Trebuchet',
-  //   imagePath: 'lib/assets/trebuchet.png',
-  //   isUnitCard: true,
-  //   attackRange: 'Distance',
-  //   attackPower: 8,
-  // );
   final CardData data;
 
   const GameCard({Key? key, required this.data}) : super(key: key);
