@@ -47,6 +47,7 @@ class _MyHomePageState extends State<MyHomePage> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: const [
                 GameCard(data: spear),
+                GameCard(data: scout),
                 GameCard(data: archer),
                 GameCard(data: catapult),
                 GameCard(data: trebuchet),

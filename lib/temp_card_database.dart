@@ -4,6 +4,7 @@ const List<List<CardData>> cardDecks = [
   closeCards,
   rangedCards,
   distanceCards,
+  spyCards,
   abilityCards,
 ];
 
@@ -97,6 +98,19 @@ const CardData balista = CardData(
   isUnitCard: true,
   attackRange: 'Distance',
   attackPower: 5,
+);
+
+// SPY CARDS
+const List<CardData> spyCards = [
+  scout,
+];
+
+const CardData scout = CardData(
+  title: 'scout',
+  imagePath: './assets/scout.png',
+  isUnitCard: true,
+  attackRange: 'Close',
+  attackPower: 2,
 );
 
 // ABILITY CARDS
