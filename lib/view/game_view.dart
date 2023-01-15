@@ -23,20 +23,17 @@ class _GameViewState extends State<GameView> {
           children: [
             Row(
               children: [
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Container(
-                      alignment: Alignment.center,
-                      width: 350,
-                      child: const Text('Player One'),
-                    ),
-                    Container(
-                      alignment: Alignment.center,
-                      width: 350,
-                      child: const Text('Player Two'),
-                    ),
-                  ],
+                Container(
+                  height: 760,
+                  width: 350,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: const [
+                      Text('Player One'),
+                      Text('Player Two'),
+                    ],
+                  ),
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
