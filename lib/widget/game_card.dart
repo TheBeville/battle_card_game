@@ -20,11 +20,14 @@ class GameCard extends StatelessWidget {
         ),
         borderRadius: BorderRadius.circular(12),
       ),
-      width: 175,
-      height: 250,
+      width: 100,
+      height: 170,
       child: Column(
         children: [
-          Text(data.title),
+          Text(
+            data.title,
+            style: TextStyle(color: Theme.of(context).primaryColor),
+          ),
           Container(
             decoration: BoxDecoration(
               border: Border.all(

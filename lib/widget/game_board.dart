@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'board_row.dart';
+import 'current_hand.dart';
 
 class GameBoard extends StatefulWidget {
   const GameBoard({super.key});
@@ -35,25 +36,29 @@ class _GameBoardState extends State<GameBoard> {
                   children: const [
                     BoardRow(attackRange: 'Siege'),
                     SizedBox(
-                      height: 2,
+                      height: 1,
                     ),
                     BoardRow(attackRange: 'Ranged'),
                     SizedBox(
-                      height: 2,
+                      height: 1,
                     ),
                     BoardRow(attackRange: 'Close Combat'),
+                    SizedBox(
+                      height: 5,
+                    ),
+                    BoardRow(attackRange: 'Close Combat'),
+                    SizedBox(
+                      height: 1,
+                    ),
+                    BoardRow(attackRange: 'Ranged'),
+                    SizedBox(
+                      height: 1,
+                    ),
+                    BoardRow(attackRange: 'Siege'),
                     SizedBox(
                       height: 10,
                     ),
-                    BoardRow(attackRange: 'Close Combat'),
-                    SizedBox(
-                      height: 2,
-                    ),
-                    BoardRow(attackRange: 'Ranged'),
-                    SizedBox(
-                      height: 2,
-                    ),
-                    BoardRow(attackRange: 'Siege'),
+                    CurrentHand(),
                   ],
                 ),
               ],

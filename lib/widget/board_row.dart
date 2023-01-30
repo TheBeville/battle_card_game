@@ -14,7 +14,7 @@ class BoardRow extends StatelessWidget {
         borderRadius: BorderRadius.circular(12),
       ),
       width: 800,
-      height: 125,
+      height: 110,
       child: Center(
         child: Text(attackRange),
       ),
