@@ -7,10 +7,6 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // uses go_router to navigate to GameView
-    void launchNewGame() {
-      context.go('/new_game');
-    }
-
     return Scaffold(
       body: Center(
         child: Column(
@@ -24,8 +20,19 @@ class HomeView extends StatelessWidget {
               height: 50.0,
             ),
             ElevatedButton(
-              onPressed: launchNewGame,
+              onPressed: () {
+                context.go('/new_game');
+              },
               child: const Text('New Game'),
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            ElevatedButton(
+              onPressed: () {
+                context.go('/settings');
+              },
+              child: const Text('Settings'),
             ),
           ],
         ),

@@ -1,9 +1,10 @@
-import 'package:card_game/view/game_view.dart';
-import 'package:card_game/view/home_view.dart';
 import 'package:flutter/material.dart';
 import 'package:desktop_window/desktop_window.dart';
 import 'package:go_router/go_router.dart';
 import './theme.dart';
+import './view/settings_view.dart';
+import './view/game_view.dart';
+import './view/home_view.dart';
 
 void main() async {
   // initialise widget tree before MyApp is ran,
@@ -23,6 +24,10 @@ final GoRouter _router = GoRouter(
     GoRoute(
       path: '/new_game',
       builder: (context, state) => const GameView(),
+    ),
+    GoRoute(
+      path: '/settings',
+      builder: (context, state) => const SettingsView(),
     ),
   ],
 );

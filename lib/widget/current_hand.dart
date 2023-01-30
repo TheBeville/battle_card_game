@@ -24,10 +24,11 @@ class _CurrentHandState extends State<CurrentHand> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: const [
-          GameCard(data: spear),
-          GameCard(data: archer),
-          GameCard(data: catapult),
-          GameCard(data: trebuchet),
+          GameCard(data: Cards.spear),
+          GameCard(data: Cards.archer),
+          GameCard(data: Cards.catapult),
+          GameCard(data: Cards.trebuchet),
+          GameCard(data: Cards.scout),
         ],
       ),
     );
