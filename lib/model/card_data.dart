@@ -4,6 +4,7 @@ class CardData {
   final bool isUnitCard;
   final String? attackRange;
   final int? attackPower;
+  final bool isFullSize;
 
   const CardData({
     required this.title,
@@ -11,5 +12,6 @@ class CardData {
     required this.isUnitCard,
     required this.attackRange,
     required this.attackPower,
+    required this.isFullSize,
   });
 }

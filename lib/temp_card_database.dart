@@ -34,6 +34,7 @@ class Cards {
     isUnitCard: true,
     attackRange: 'Close',
     attackPower: 5,
+    isFullSize: false,
   );
 
   static const spear = CardData(
@@ -42,6 +43,7 @@ class Cards {
     isUnitCard: true,
     attackRange: 'Close',
     attackPower: 3,
+    isFullSize: false,
   );
 
   static const swordsman = CardData(
@@ -50,6 +52,7 @@ class Cards {
     isUnitCard: true,
     attackRange: 'Close',
     attackPower: 2,
+    isFullSize: false,
   );
 
   // RANGED CARDS
@@ -59,6 +62,7 @@ class Cards {
     isUnitCard: true,
     attackRange: 'Ranged',
     attackPower: 5,
+    isFullSize: false,
   );
 
   static const CardData archer = CardData(
@@ -67,6 +71,7 @@ class Cards {
     isUnitCard: true,
     attackRange: 'Ranged',
     attackPower: 4,
+    isFullSize: false,
   );
 
   static const CardData javelin = CardData(
@@ -75,6 +80,7 @@ class Cards {
     isUnitCard: true,
     attackRange: 'Ranged',
     attackPower: 4,
+    isFullSize: false,
   );
 
   // SIEGE CARDS
@@ -84,6 +90,7 @@ class Cards {
     isUnitCard: true,
     attackRange: 'Distance',
     attackPower: 8,
+    isFullSize: false,
   );
 
   static const CardData catapult = CardData(
@@ -92,6 +99,7 @@ class Cards {
     isUnitCard: true,
     attackRange: 'Distance',
     attackPower: 6,
+    isFullSize: false,
   );
 
   static const CardData balista = CardData(
@@ -100,6 +108,7 @@ class Cards {
     isUnitCard: true,
     attackRange: 'Distance',
     attackPower: 5,
+    isFullSize: false,
   );
 
   // SPY CARDS
@@ -109,6 +118,7 @@ class Cards {
     isUnitCard: true,
     attackRange: 'Close',
     attackPower: 2,
+    isFullSize: false,
   );
 
   // ABILITY CARDS
