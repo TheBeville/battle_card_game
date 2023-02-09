@@ -1,9 +1,13 @@
-import 'package:card_game/temp_card_database.dart';
+// import 'package:card_game/temp_card_database.dart';
 import 'package:flutter/material.dart';
+import '../model/card_data.dart';
 import '../widget/game_card.dart';
+import '../model/cards.dart';
 
 class CurrentHand extends StatefulWidget {
-  const CurrentHand({super.key});
+  final List<CardData> cards;
+
+  const CurrentHand({required this.cards, super.key});
 
   @override
   State<CurrentHand> createState() => _CurrentHandState();
@@ -23,13 +27,7 @@ class _CurrentHandState extends State<CurrentHand> {
       height: 135,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
-        children: const [
-          GameCard(data: Cards.spear),
-          GameCard(data: Cards.archer),
-          GameCard(data: Cards.catapult),
-          GameCard(data: Cards.trebuchet),
-          GameCard(data: Cards.scout),
-        ],
+        children: [...widget.cards.map((e) => GameCard(data: e))],
       ),
     );
   }

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../widget/game_card.dart';
-import '../temp_card_database.dart';
+import '../model/cards.dart';
 
 // Replace with HomeView() as '/' in router settings to debug/view card
 

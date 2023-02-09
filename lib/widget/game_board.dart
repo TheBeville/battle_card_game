@@ -1,9 +1,19 @@
 import 'package:flutter/material.dart';
+import '../controllers/game_controller.dart';
 import 'board_row.dart';
 import 'current_hand.dart';
 
 class GameBoard extends StatefulWidget {
-  const GameBoard({super.key});
+  final GameState state;
+
+  final VoidCallback onDraw;
+  final VoidCallback changeTurn;
+
+  const GameBoard(
+      {required this.state,
+      required this.onDraw,
+      required this.changeTurn,
+      super.key});
 
   @override
   State<GameBoard> createState() => _GameBoardState();
@@ -23,9 +33,17 @@ class _GameBoardState extends State<GameBoard> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 crossAxisAlignment: CrossAxisAlignment.center,
-                children: const [
-                  Text('Player One'),
-                  Text('Player Two'),
+                children: [
+                  const Text('Player One'),
+                  const Text('Player Two'),
+                  ElevatedButton(
+                    onPressed: widget.onDraw,
+                    child: const Text('Draw'),
+                  ),
+                  ElevatedButton(
+                    onPressed: widget.changeTurn,
+                    child: const Text('Change Turn'),
+                  )
                 ],
               ),
             ),
@@ -33,32 +51,34 @@ class _GameBoardState extends State<GameBoard> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 Column(
-                  children: const [
-                    BoardRow(attackRange: 'Siege'),
-                    SizedBox(
+                  children: [
+                    const BoardRow(attackRange: 'Siege'),
+                    const SizedBox(
                       height: 1,
                     ),
-                    BoardRow(attackRange: 'Ranged'),
-                    SizedBox(
+                    const BoardRow(attackRange: 'Ranged'),
+                    const SizedBox(
                       height: 1,
                     ),
-                    BoardRow(attackRange: 'Close Combat'),
-                    SizedBox(
+                    const BoardRow(attackRange: 'Close Combat'),
+                    const SizedBox(
                       height: 5,
                     ),
-                    BoardRow(attackRange: 'Close Combat'),
-                    SizedBox(
+                    const BoardRow(attackRange: 'Close Combat'),
+                    const SizedBox(
                       height: 1,
                     ),
-                    BoardRow(attackRange: 'Ranged'),
-                    SizedBox(
+                    const BoardRow(attackRange: 'Ranged'),
+                    const SizedBox(
                       height: 1,
                     ),
-                    BoardRow(attackRange: 'Siege'),
-                    SizedBox(
+                    const BoardRow(attackRange: 'Siege'),
+                    const SizedBox(
                       height: 10,
                     ),
-                    CurrentHand(),
+                    CurrentHand(
+                      cards: widget.state.players.first.hand,
+                    ),
                   ],
                 ),
               ],

@@ -5,6 +5,7 @@ class CardData {
   final String? attackRange;
   final int? attackPower;
   final bool isFullSize;
+  final CardType type;
 
   const CardData({
     required this.title,
@@ -13,5 +14,14 @@ class CardData {
     required this.attackRange,
     required this.attackPower,
     required this.isFullSize,
+    required this.type,
   });
+}
+
+enum CardType {
+  close,
+  medium,
+  siege,
+  spy,
+  ability,
 }

@@ -1,4 +1,4 @@
-import './model/card_data.dart';
+import 'card_data.dart';
 
 class Deck {
   static const closeCards = [
@@ -35,16 +35,17 @@ class Cards {
     attackRange: 'Close',
     attackPower: 5,
     isFullSize: false,
+    type: CardType.close,
   );
 
   static const spear = CardData(
-    title: 'Spearman',
-    imagePath: './lib/assets/spearman.png',
-    isUnitCard: true,
-    attackRange: 'Close',
-    attackPower: 3,
-    isFullSize: false,
-  );
+      title: 'Spearman',
+      imagePath: './lib/assets/spearman.png',
+      isUnitCard: true,
+      attackRange: 'Close',
+      attackPower: 3,
+      isFullSize: false,
+      type: CardType.close);
 
   static const swordsman = CardData(
     title: 'Swordsman',
@@ -53,6 +54,7 @@ class Cards {
     attackRange: 'Close',
     attackPower: 2,
     isFullSize: false,
+    type: CardType.close,
   );
 
   // RANGED CARDS
@@ -63,6 +65,7 @@ class Cards {
     attackRange: 'Ranged',
     attackPower: 5,
     isFullSize: false,
+    type: CardType.medium,
   );
 
   static const CardData archer = CardData(
@@ -72,6 +75,7 @@ class Cards {
     attackRange: 'Ranged',
     attackPower: 4,
     isFullSize: false,
+    type: CardType.medium,
   );
 
   static const CardData javelin = CardData(
@@ -81,6 +85,7 @@ class Cards {
     attackRange: 'Ranged',
     attackPower: 4,
     isFullSize: false,
+    type: CardType.medium,
   );
 
   // SIEGE CARDS
@@ -91,6 +96,7 @@ class Cards {
     attackRange: 'Distance',
     attackPower: 8,
     isFullSize: false,
+    type: CardType.siege,
   );
 
   static const CardData catapult = CardData(
@@ -100,6 +106,7 @@ class Cards {
     attackRange: 'Distance',
     attackPower: 6,
     isFullSize: false,
+    type: CardType.siege,
   );
 
   static const CardData balista = CardData(
@@ -109,6 +116,7 @@ class Cards {
     attackRange: 'Distance',
     attackPower: 5,
     isFullSize: false,
+    type: CardType.siege,
   );
 
   // SPY CARDS
@@ -119,6 +127,7 @@ class Cards {
     attackRange: 'Close',
     attackPower: 2,
     isFullSize: false,
+    type: CardType.spy,
   );
 
   // ABILITY CARDS
