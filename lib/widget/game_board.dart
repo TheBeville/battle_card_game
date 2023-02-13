@@ -34,8 +34,8 @@ class _GameBoardState extends State<GameBoard> {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  const Text('Player One'),
-                  const Text('Player Two'),
+                  const Text('Opponent'),
+                  const Text('Player'),
                   ElevatedButton(
                     onPressed: widget.onDraw,
                     child: const Text('Draw'),
@@ -52,27 +52,45 @@ class _GameBoardState extends State<GameBoard> {
               children: [
                 Column(
                   children: [
-                    const BoardRow(attackRange: 'Siege'),
+                    BoardRow(
+                      attackRange: 'Siege',
+                      cards: widget.state.players.first.board,
+                    ),
                     const SizedBox(
                       height: 1,
                     ),
-                    const BoardRow(attackRange: 'Ranged'),
+                    BoardRow(
+                      attackRange: 'Ranged',
+                      cards: widget.state.players.first.board,
+                    ),
                     const SizedBox(
                       height: 1,
                     ),
-                    const BoardRow(attackRange: 'Close Combat'),
+                    BoardRow(
+                      attackRange: 'Close Combat',
+                      cards: widget.state.players.first.board,
+                    ),
                     const SizedBox(
                       height: 5,
                     ),
-                    const BoardRow(attackRange: 'Close Combat'),
+                    BoardRow(
+                      attackRange: 'Close Combat',
+                      cards: widget.state.players.first.board,
+                    ),
                     const SizedBox(
                       height: 1,
                     ),
-                    const BoardRow(attackRange: 'Ranged'),
+                    BoardRow(
+                      attackRange: 'Ranged',
+                      cards: widget.state.players.first.board,
+                    ),
                     const SizedBox(
                       height: 1,
                     ),
-                    const BoardRow(attackRange: 'Siege'),
+                    BoardRow(
+                      attackRange: 'Siege',
+                      cards: widget.state.players.first.board,
+                    ),
                     const SizedBox(
                       height: 10,
                     ),

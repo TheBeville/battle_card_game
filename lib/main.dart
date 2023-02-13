@@ -5,7 +5,6 @@ import './theme.dart';
 import './view/settings_view.dart';
 import './view/game_view.dart';
 import './view/home_view.dart';
-// import './view/card_view.dart';
 
 void main() async {
   // initialise widget tree before MyApp is ran,
@@ -20,7 +19,6 @@ final GoRouter _router = GoRouter(
   routes: <RouteBase>[
     GoRoute(
       path: '/',
-      // builder: (context, state) => const HomeView(),
       builder: (context, state) => const HomeView(),
     ),
     GoRoute(

@@ -1,8 +1,6 @@
-// import 'package:card_game/temp_card_database.dart';
 import 'package:flutter/material.dart';
 import '../model/card_data.dart';
 import '../widget/game_card.dart';
-import '../model/cards.dart';
 
 class CurrentHand extends StatefulWidget {
   final List<CardData> cards;

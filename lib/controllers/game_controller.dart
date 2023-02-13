@@ -16,11 +16,15 @@ class GameController extends Cubit<GameState> {
     playerSiegeScore: 0,
   );
 
+  // create a shuffled deck for each player
   GameController() : super(GameState.initial(randomDeck(), randomDeck()));
 
   static List<CardData> randomDeck() => [
-        ...List.filled(10, Cards.spear),
-        ...List.filled(10, Cards.archer)
+        ...List.filled(4, Cards.spear),
+        ...List.filled(4, Cards.archer),
+        ...List.filled(4, Cards.trebuchet),
+        ...List.filled(4, Cards.catapult),
+        ...List.filled(4, Cards.balista),
       ]..shuffle();
 
   void drawCard() => emit((state.drawCard(state.turn)));
@@ -52,6 +56,7 @@ class GameState {
   GameState drawCard(int player) =>
       updatePlayer(player, players[player].drawCard());
 
+  // switch back and forth between player and opponent turn
   GameState changeTurn() => copyWith(turn: 1 - turn);
 
   factory GameState.initial(List<CardData> deck1, List<CardData> deck2) =>
@@ -83,6 +88,7 @@ class PlayerState {
     required this.board,
   });
 
+  // draws a card to current hand, from the deck
   PlayerState drawCard() =>
       copyWith(deck: [...deck.skip(1)], hand: [...hand, deck.first]);
 
