@@ -28,6 +28,8 @@ class GameController extends Cubit<GameState> {
       ]..shuffle();
 
   void drawCard() => emit((state.drawCard(state.turn)));
+  void playCard(int player, CardData card) =>
+      emit(state.playCard(player, card));
 
   void changeTurn() => emit((state.changeTurn()));
 }
@@ -55,6 +57,9 @@ class GameState {
 
   GameState drawCard(int player) =>
       updatePlayer(player, players[player].drawCard());
+
+  GameState playCard(int player, CardData card) =>
+      updatePlayer(player, players[player].playCard(card));
 
   // switch back and forth between player and opponent turn
   GameState changeTurn() => copyWith(turn: 1 - turn);
@@ -91,6 +96,9 @@ class PlayerState {
   // draws a card to current hand, from the deck
   PlayerState drawCard() =>
       copyWith(deck: [...deck.skip(1)], hand: [...hand, deck.first]);
+
+  PlayerState playCard(CardData card) =>
+      copyWith(hand: [...hand]..remove(card), board: [...board, card]);
 
   factory PlayerState.initial(List<CardData> deck) =>
       PlayerState(deck: deck, hand: [], board: []);

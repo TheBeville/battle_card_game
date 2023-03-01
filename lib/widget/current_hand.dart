@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
 import '../model/card_data.dart';
-import '../widget/game_card.dart';
+import 'small_card.dart';
 
 class CurrentHand extends StatefulWidget {
   final List<CardData> cards;
+  final void Function(CardData card) onCardTap;
 
-  const CurrentHand({required this.cards, super.key});
+  const CurrentHand({
+    required this.cards,
+    super.key,
+    required this.onCardTap,
+  });
 
   @override
   State<CurrentHand> createState() => _CurrentHandState();
@@ -25,7 +30,12 @@ class _CurrentHandState extends State<CurrentHand> {
       height: 135,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
-        children: [...widget.cards.map((e) => GameCard(data: e))],
+        children: [
+          ...widget.cards.map((e) => SmallCard(
+                data: e,
+                onTap: () => widget.onCardTap(e),
+              ))
+        ],
       ),
     );
   }

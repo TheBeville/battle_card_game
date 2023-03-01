@@ -10,6 +10,8 @@ class GameCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return data.isFullSize ? FullSizeCard(data: data) : SmallCard(data: data);
+    return data.isFullSize
+        ? FullSizeCard(data: data)
+        : SmallCard(data: data, onTap: () {});
   }
 }

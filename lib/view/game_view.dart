@@ -21,6 +21,7 @@ class _GameViewState extends State<GameView> {
           return GameBoard(
             state: state,
             onDraw: _gameController.drawCard,
+            onPlayCard: _gameController.playCard,
             changeTurn: _gameController.changeTurn,
           );
         },
