@@ -96,7 +96,6 @@ class SmallCard extends StatelessWidget {
                         )
                       ],
                     ),
-                    Column(),
                   ],
                 ),
               ),
