@@ -1,4 +1,5 @@
 import 'package:card_game/model/card_data.dart';
+import 'package:card_game/model/game_data.dart';
 import 'package:card_game/utils.dart';
 import 'package:flutter/material.dart';
 import '../controllers/game_controller.dart';
@@ -7,6 +8,7 @@ import 'current_hand.dart';
 
 class GameBoard extends StatefulWidget {
   final GameState state;
+  final GameData gameData;
 
   final VoidCallback onDraw;
   final void Function(int player, CardData card) onPlayCard;
@@ -17,6 +19,7 @@ class GameBoard extends StatefulWidget {
     required this.onDraw,
     required this.onPlayCard,
     required this.changeTurn,
+    required this.gameData,
     super.key,
   });
 
@@ -27,28 +30,67 @@ class GameBoard extends StatefulWidget {
 class _GameBoardState extends State<GameBoard> {
   @override
   Widget build(BuildContext context) {
+    int opponentScore = widget.gameData.opponentScore;
+    int playerScore = widget.gameData.playerScore;
+
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Row(
           children: [
             Container(
-              height: 760,
+              height: 800,
               width: 350,
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  const Text('Opponent'),
-                  const Text('Player'),
-                  ElevatedButton(
-                    onPressed: widget.onDraw,
-                    child: const Text('Draw'),
+                  Container(
+                    height: 340,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const Text('Opponent'),
+                        const SizedBox(
+                          height: 5,
+                        ),
+                        Text('Score: $opponentScore'),
+                      ],
+                    ),
                   ),
-                  ElevatedButton(
-                    onPressed: widget.changeTurn,
-                    child: const Text('Change Turn'),
-                  )
+                  Container(
+                    height: 460,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Column(
+                          children: [
+                            const Text('Player'),
+                            const SizedBox(
+                              height: 5,
+                            ),
+                            Text('Score: $playerScore'),
+                          ],
+                        ),
+                        Column(
+                          children: [
+                            ElevatedButton(
+                              onPressed: widget.onDraw,
+                              child: const Text('Draw'),
+                            ),
+                            const SizedBox(
+                              height: 5,
+                            ),
+                            ElevatedButton(
+                              onPressed: widget.changeTurn,
+                              child: const Text('Change Turn'),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
                 ],
               ),
             ),
@@ -60,6 +102,7 @@ class _GameBoardState extends State<GameBoard> {
                     BoardRow(
                       attackRange: 'Siege',
                       cards: widget.state.players.last.board.siegeCards,
+                      rowScore: widget.gameData.opponentSiegeScore,
                     ),
                     const SizedBox(
                       height: 1,
@@ -67,6 +110,7 @@ class _GameBoardState extends State<GameBoard> {
                     BoardRow(
                       attackRange: 'Ranged',
                       cards: widget.state.players.last.board.mediumCards,
+                      rowScore: widget.gameData.opponentRangedScore,
                     ),
                     const SizedBox(
                       height: 1,
@@ -74,6 +118,7 @@ class _GameBoardState extends State<GameBoard> {
                     BoardRow(
                       attackRange: 'Close Combat',
                       cards: widget.state.players.last.board.closeCards,
+                      rowScore: widget.gameData.opponentCloseScore,
                     ),
                     const SizedBox(
                       height: 5,
@@ -81,6 +126,7 @@ class _GameBoardState extends State<GameBoard> {
                     BoardRow(
                       attackRange: 'Close Combat',
                       cards: widget.state.players.first.board.closeCards,
+                      rowScore: widget.gameData.playerCloseScore,
                     ),
                     const SizedBox(
                       height: 1,
@@ -88,6 +134,7 @@ class _GameBoardState extends State<GameBoard> {
                     BoardRow(
                       attackRange: 'Ranged',
                       cards: widget.state.players.first.board.mediumCards,
+                      rowScore: widget.gameData.playerRangedScore,
                     ),
                     const SizedBox(
                       height: 1,
@@ -95,6 +142,7 @@ class _GameBoardState extends State<GameBoard> {
                     BoardRow(
                       attackRange: 'Siege',
                       cards: widget.state.players.first.board.siegeCards,
+                      rowScore: widget.gameData.playerSiegeScore,
                     ),
                     const SizedBox(
                       height: 10,

@@ -5,7 +5,7 @@ import '../model/cards.dart';
 import '../model/game_data.dart';
 
 class GameController extends Cubit<GameState> {
-  final GameData _gameData = const GameData(
+  GameData gameData = const GameData(
     playerScore: 0,
     opponentScore: 0,
     opponentCloseScore: 0,

@@ -74,7 +74,7 @@ class SmallCard extends StatelessWidget {
                             data.attackPower.toString(),
                             style: const TextStyle(
                               color: Colors.black,
-                              fontSize: 13,
+                              fontSize: 12,
                             ),
                           ),
                         ),

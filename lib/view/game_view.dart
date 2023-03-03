@@ -20,6 +20,7 @@ class _GameViewState extends State<GameView> {
         builder: (context, state) {
           return GameBoard(
             state: state,
+            gameData: _gameController.gameData,
             onDraw: _gameController.drawCard,
             onPlayCard: _gameController.playCard,
             changeTurn: _gameController.changeTurn,

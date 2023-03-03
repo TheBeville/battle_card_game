@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import '../model/card_data.dart';
 import './small_card.dart';
-import './full_size_card.dart';
 
 class GameCard extends StatelessWidget {
   final CardData data;
@@ -10,8 +9,6 @@ class GameCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return data.isFullSize
-        ? FullSizeCard(data: data)
-        : SmallCard(data: data, onTap: () {});
+    return SmallCard(data: data, onTap: () {});
   }
 }
