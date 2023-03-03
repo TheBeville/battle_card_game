@@ -101,7 +101,12 @@ class _GameBoardState extends State<GameBoard> {
                     ),
                     CurrentHand(
                       cards: widget.state.players.first.hand,
-                      onCardTap: (card) => widget.onPlayCard(0, card),
+                      onCardTap: (card) {
+                        if (widget.state.turn == 0) {
+                          widget.onPlayCard(0, card);
+                          widget.changeTurn();
+                        }
+                      },
                     ),
                   ],
                 ),

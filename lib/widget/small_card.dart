@@ -16,6 +16,13 @@ class SmallCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double width = height * 4 / 5;
+
+    const Icon closeCombatIcon = Icon(
+      Icons.dangerous_sharp,
+      color: Colors.black,
+      size: 15,
+    );
+
     return GestureDetector(
       onTap: onTap,
       child: Container(
@@ -28,7 +35,7 @@ class SmallCard extends StatelessWidget {
           border: Border.all(
             width: 4,
           ),
-          borderRadius: BorderRadius.circular(12),
+          borderRadius: BorderRadius.circular(11),
         ),
         width: width,
         height: height * 6 / 5,
@@ -36,10 +43,7 @@ class SmallCard extends StatelessWidget {
           children: [
             Container(
               decoration: BoxDecoration(
-                border: Border.all(
-                  width: 1,
-                ),
-                borderRadius: BorderRadius.circular(5),
+                borderRadius: BorderRadius.circular(7),
                 image: DecorationImage(
                   image: AssetImage(data.imagePath),
                   fit: BoxFit.cover,
@@ -47,6 +51,55 @@ class SmallCard extends StatelessWidget {
               ),
               width: width,
               height: height,
+              child: Padding(
+                padding: const EdgeInsets.all(3.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    Column(
+                      children: [
+                        Container(
+                          width: 20,
+                          height: 20,
+                          decoration: BoxDecoration(
+                            color: Colors.white70,
+                            borderRadius: BorderRadius.circular(15),
+                            border: Border.all(
+                              width: 1,
+                            ),
+                          ),
+                          alignment: Alignment.center,
+                          child: Text(
+                            data.attackPower.toString(),
+                            style: const TextStyle(
+                              color: Colors.black,
+                              fontSize: 13,
+                            ),
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 2,
+                        ),
+                        Container(
+                          width: 20,
+                          height: 20,
+                          decoration: BoxDecoration(
+                            color: Colors.white70,
+                            borderRadius: BorderRadius.circular(15),
+                            border: Border.all(
+                              width: 1,
+                            ),
+                          ),
+                          alignment: Alignment.center,
+                          child: closeCombatIcon,
+                        )
+                      ],
+                    ),
+                    Column(),
+                  ],
+                ),
+              ),
             ),
           ],
         ),

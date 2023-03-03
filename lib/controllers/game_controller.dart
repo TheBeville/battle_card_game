@@ -20,14 +20,13 @@ class GameController extends Cubit<GameState> {
   GameController() : super(GameState.initial(randomDeck(), randomDeck()));
 
   static List<CardData> randomDeck() => [
-        ...List.filled(4, Cards.spear),
-        ...List.filled(4, Cards.archer),
-        ...List.filled(4, Cards.trebuchet),
-        ...List.filled(4, Cards.catapult),
-        ...List.filled(4, Cards.balista),
+        ...List.filled(5, Cards.spear),
+        ...List.filled(5, Cards.archer),
+        ...List.filled(5, Cards.catapult),
       ]..shuffle();
 
   void drawCard() => emit((state.drawCard(state.turn)));
+
   void playCard(int player, CardData card) =>
       emit(state.playCard(player, card));
 
