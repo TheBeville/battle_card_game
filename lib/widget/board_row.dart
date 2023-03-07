@@ -1,18 +1,19 @@
+import 'package:card_game/utils.dart';
 import 'package:card_game/widget/small_card.dart';
 import 'package:flutter/material.dart';
 import '../model/card_data.dart';
 
 class BoardRow extends StatelessWidget {
   final String attackRange;
-  final int rowScore;
   final List<CardData> cards;
 
-  const BoardRow(
-      {Key? key,
-      required this.attackRange,
-      required this.cards,
-      required this.rowScore})
-      : super(key: key);
+  int get score => cards.score;
+
+  const BoardRow({
+    Key? key,
+    required this.attackRange,
+    required this.cards,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +29,7 @@ class BoardRow extends StatelessWidget {
           width: 50,
           height: 110,
           alignment: Alignment.center,
-          child: Text(rowScore.toString()),
+          child: Text('$score'),
         ),
         Container(
           decoration: BoxDecoration(

@@ -1,21 +1,9 @@
 import 'package:bloc/bloc.dart';
 import 'package:card_game/model/card_data.dart';
+import 'package:card_game/utils.dart';
 import '../model/cards.dart';
 
-import '../model/game_data.dart';
-
 class GameController extends Cubit<GameState> {
-  GameData gameData = const GameData(
-    playerScore: 0,
-    opponentScore: 0,
-    opponentCloseScore: 0,
-    opponentRangedScore: 0,
-    opponentSiegeScore: 0,
-    playerCloseScore: 0,
-    playerRangedScore: 0,
-    playerSiegeScore: 0,
-  );
-
   // create a shuffled deck for each player
   GameController() : super(GameState.initial(randomDeck(), randomDeck()));
 
@@ -74,6 +62,8 @@ class PlayerState {
   final List<CardData> deck;
   final List<CardData> hand;
   final List<CardData> board;
+
+  int get score => board.score;
 
   PlayerState copyWith({
     List<CardData>? deck,

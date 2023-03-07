@@ -7,4 +7,5 @@ extension CardTypeFilter on List<CardData> {
   List<CardData> get siegeCards => ofType(CardType.siege);
   List<CardData> get abilityCards => ofType(CardType.ability);
   List<CardData> get spyCards => ofType(CardType.spy);
+  int get score => fold(0, (total, e) => total + (e.attackPower ?? 0));
 }
